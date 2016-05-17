@@ -142,7 +142,7 @@ def print_explanation(data, options):
             print(*[
                 '     * {0}\n       {1}'.format(
                     _c(ref['key'], 'yellow'),
-                    '; '.join(map(_c('{0}', 'magenta').format, ref['value']))
+                    '; '.join(map(_c('{0}', 'white').format, ref['value']))
                 ) for ref in web], sep='\n')
 
         # Online resources
@@ -245,6 +245,8 @@ if __name__ == "__main__":
                         words = input('> ')
                     else:
                         words = raw_input('> ')
+                    if words.strip() == 'exit' or words.strip() == 'quit':
+                        break
                     if words.strip():
                         lookup_word(words)
                 except KeyboardInterrupt:
